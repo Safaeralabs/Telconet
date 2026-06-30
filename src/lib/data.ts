@@ -3,15 +3,56 @@
 
 export const company = {
   name: "TecolNet",
-  legal: "TecolNet SAS",
+  legal: "Tecol Networks SAS",
   tagline: "Conectamos tu mundo",
   mission: "Cerrando brechas, construyendo futuro",
   pitch: "Internet rápido y confiable desde La Guajira para Colombia y el mundo",
+  vision:
+    "Para 2030, ser la empresa líder de telecomunicaciones en La Guajira, con innovación tecnológica, responsabilidad social y sostenibilidad ambiental.",
   since: 2008,
   phone: "3104137651",
-  whatsapp: "573104133451",
+  whatsapp: "573104137651",
   email: "contacto@tecolnetworks.com",
-  address: "Carrera 5 No. 3A-07, Riohacha, La Guajira",
+  address: "Carrera 5 No. 3A-07, Riohacha · La Guajira",
+};
+
+// Enlaces externos oficiales (portal de clientes, pagos y páginas legales).
+export const links = {
+  portal:
+    "https://clientes.portalinternet.app/accounts/login/?empresa=tecolnet-sas",
+  pagar: "https://clientes.portalinternet.app/saldo/tecolnet-sas/",
+  instalacion:
+    "https://clientes.portalinternet.app/solicitar-instalacion/tecolnet-sas/",
+  pqrsf: "https://tecolnet.com/pqr/",
+  privacidad: "https://tecolnet.com/politica-de-privacidad/",
+  terminos: "https://tecolnet.com/118-2/",
+  gestionTrafico: "https://tecolnet.com/practicas-de-gestion-de-trafico-2/",
+  indicadores: "https://tecolnet.com/indicadores-de-calidad/",
+  cobertura: "https://tecolnet.com/cobertura/",
+  speedtest: "https://fast.com/es/",
+};
+
+// Valores corporativos (de tecolnet.com/nosotros).
+export const values = [
+  "Innovación tecnológica",
+  "Compromiso social",
+  "Sostenibilidad",
+  "Calidad y confiabilidad",
+  "Inclusión y accesibilidad",
+  "Transparencia y ética",
+  "Cercanía con el cliente",
+];
+
+// Indicadores de calidad reportados (metodología RPU).
+export const quality = {
+  note: "Medición según metodología RPU · Actualizado jul. 2025",
+  url: "https://tecolnet.com/indicadores-de-calidad/",
+  items: [
+    { label: "Velocidad de descarga", value: 95, target: 90 },
+    { label: "Velocidad de subida", value: 92, target: 85 },
+    { label: "Disponibilidad del servicio", value: 99, target: 98 },
+    { label: "Latencia", value: 78, target: 80 },
+  ],
 };
 
 export const stats = [

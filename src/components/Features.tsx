@@ -1,4 +1,4 @@
-import { features } from "@/lib/data";
+import { features, company, values } from "@/lib/data";
 import { Icons } from "./Icons";
 import Reveal from "./Reveal";
 
@@ -45,6 +45,32 @@ export default function Features() {
             );
           })}
         </div>
+
+        {/* Visión + valores (de tecolnet.com/nosotros) */}
+        <Reveal>
+          <div className="mt-10 rounded-3xl border border-line bg-surface/30 p-7 sm:p-9">
+            <div className="grid gap-6 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-10">
+              <div className="max-w-xl">
+                <h3 className="font-display text-sm font-bold uppercase tracking-widest text-cyan">
+                  Nuestra visión
+                </h3>
+                <p className="mt-2 text-lg leading-relaxed text-ink">
+                  {company.vision}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 lg:justify-end">
+                {values.map((v) => (
+                  <span
+                    key={v}
+                    className="rounded-full border border-line bg-white/[0.02] px-3.5 py-1.5 text-xs font-medium text-muted"
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

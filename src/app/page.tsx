@@ -7,6 +7,7 @@ import Features from "@/components/Features";
 import Coverage from "@/components/Coverage";
 import SpeedTest from "@/components/SpeedTest";
 import Testimonials from "@/components/Testimonials";
+import Quality from "@/components/Quality";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -24,6 +25,7 @@ export default function Home() {
         <Coverage />
         <SpeedTest />
         <Testimonials />
+        <Quality />
         <CTA />
       </main>
       <Footer />

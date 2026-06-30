@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navLinks, company } from "@/lib/data";
+import { navLinks, company, links } from "@/lib/data";
 import { Icons } from "./Icons";
 
 export default function Header() {
@@ -58,15 +58,34 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href={links.pagar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold text-muted transition-colors hover:text-cyan"
+            >
+              <Icons.card className="h-4 w-4" />
+              Pagar
+            </a>
+            <a
+              href={links.portal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 rounded-xl border border-line px-3 py-2 text-sm font-semibold text-ink transition-colors hover:border-cyan/50 hover:text-cyan"
+            >
+              <Icons.user className="h-4 w-4" />
+              Portal
+            </a>
+            <span className="mx-0.5 h-5 w-px bg-line" />
             <a
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-line px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-cyan/50 hover:text-cyan"
+              aria-label="WhatsApp"
+              className="grid h-9 w-9 place-items-center rounded-xl border border-line text-[#22d3ee] transition-colors hover:border-cyan/50"
             >
-              <Icons.whatsapp className="h-4 w-4 text-[#22d3ee]" />
-              WhatsApp
+              <Icons.whatsapp className="h-4 w-4" />
             </a>
             <a
               href="#planes"
@@ -117,6 +136,26 @@ export default function Header() {
                 </a>
               ))}
               <div className="mt-3 flex gap-2">
+                <a
+                  href={links.portal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-line px-3 py-2.5 text-sm font-semibold"
+                >
+                  <Icons.user className="h-4 w-4 text-cyan" />
+                  Portal clientes
+                </a>
+                <a
+                  href={links.pagar}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-line px-3 py-2.5 text-sm font-semibold"
+                >
+                  <Icons.card className="h-4 w-4 text-cyan" />
+                  Pagar factura
+                </a>
+              </div>
+              <div className="mt-2 flex gap-2">
                 <a
                   href={wa}
                   target="_blank"

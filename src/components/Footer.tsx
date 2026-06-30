@@ -1,4 +1,5 @@
-import { company, navLinks } from "@/lib/data";
+import { company, navLinks, links } from "@/lib/data";
+import { Icons } from "./Icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,6 +22,27 @@ export default function Footer() {
               Internet de fibra rápido y confiable para hogares y empresas.{" "}
               {company.mission} desde {company.since}.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <a
+                href={links.portal}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl border border-line px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-cyan/50 hover:text-cyan"
+              >
+                <Icons.user className="h-4 w-4 text-cyan" />
+                Portal clientes
+              </a>
+              <a
+                href={links.pagar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl border border-line px-3.5 py-2 text-sm font-semibold text-ink transition-colors hover:border-cyan/50 hover:text-cyan"
+              >
+                <Icons.card className="h-4 w-4 text-cyan" />
+                Pagar factura
+              </a>
+            </div>
           </div>
 
           {/* Nav */}
@@ -48,10 +70,11 @@ export default function Footer() {
               Información
             </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-muted">
-              <li><a href="#" className="transition-colors hover:text-cyan">PQRSF</a></li>
-              <li><a href="#" className="transition-colors hover:text-cyan">Contrato y condiciones</a></li>
-              <li><a href="#" className="transition-colors hover:text-cyan">Gestión de tráfico</a></li>
-              <li><a href="#" className="transition-colors hover:text-cyan">Pagar factura</a></li>
+              <li><a href={links.pqrsf} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">PQRSF</a></li>
+              <li><a href={links.terminos} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">Contrato y condiciones</a></li>
+              <li><a href={links.gestionTrafico} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">Gestión de tráfico</a></li>
+              <li><a href={links.indicadores} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">Indicadores de calidad</a></li>
+              <li><a href={links.privacidad} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">Política de privacidad</a></li>
             </ul>
           </div>
 
