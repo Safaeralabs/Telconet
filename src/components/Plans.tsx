@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   homePlans,
-  homePlansExtra,
   businessPlans,
   formatCOP,
   company,
@@ -159,27 +158,15 @@ export default function Plans() {
               ))}
             </div>
 
-            {tab === "hogar" && (
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {homePlansExtra.map((p) => (
-                  <div
-                    key={p.name}
-                    className="glass flex items-center justify-between rounded-2xl px-6 py-5"
-                  >
-                    <div>
-                      <p className="font-display font-bold text-ink">{p.name}</p>
-                      <p className="text-sm text-muted">{p.features[0]}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-mono text-lg font-bold text-cyan">
-                        {p.speed} Megas
-                      </p>
-                      <p className="text-sm text-faint">{formatCOP(p.price)}/mes</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+            <p className="mt-8 text-center text-sm text-muted">
+              ¿Buscas todos los planes y tarifas vigentes?{" "}
+              <a
+                href="/informacion-importante#comparador"
+                className="font-semibold text-cyan hover:text-cyan-soft"
+              >
+                Ver comparador completo
+              </a>
+            </p>
           </motion.div>
         </AnimatePresence>
       </div>

@@ -86,7 +86,7 @@ export const homePlans: Plan[] = [
   {
     name: "Hogar Avanzado",
     price: 75000,
-    speed: 250,
+    speed: 150,
     featured: true,
     badge: "Más elegido",
     features: [
@@ -99,7 +99,7 @@ export const homePlans: Plan[] = [
   {
     name: "Hogar Premium",
     price: 100000,
-    speed: 500,
+    speed: 200,
     features: [
       "Gaming y 4K sin interrupciones",
       "Router WiFi premium incluido",
@@ -109,56 +109,40 @@ export const homePlans: Plan[] = [
   },
 ];
 
-export const homePlansExtra: Plan[] = [
-  {
-    name: "Plan Full",
-    price: 100000,
-    speed: 600,
-    features: ["Alta velocidad para hogares conectados", "Router incluido"],
-  },
-  {
-    name: "Plan Pro",
-    price: 130000,
-    speed: 900,
-    features: ["Velocidad máxima tipo fibra pura", "Router premium incluido"],
-  },
-];
-
 export const businessPlans: Plan[] = [
   {
     name: "Empresarial",
-    price: 178500,
-    speed: 300,
+    price: 250000,
+    speed: 200,
     features: [
+      "SLA de disponibilidad hasta 99.9%",
+      "Soporte técnico 24/7",
+      "IP pública fija incluida",
       "Canal con prioridad empresarial",
-      "Atención técnica preferente",
-      "IP fija incluida",
-      "Comunicación en tiempo real",
     ],
   },
   {
     name: "Empresarial Plus",
-    price: 275000,
-    speed: 600,
+    price: 320000,
+    speed: 300,
     featured: true,
     badge: "Recomendado",
     features: [
+      "SLA de disponibilidad hasta 99.9%",
+      "Soporte técnico 24/7 y atención prioritaria",
+      "IP pública fija incluida",
       "Mayor ancho de banda dedicado",
-      "Escalamiento técnico prioritario",
-      "IP fija y soporte 24/7",
-      "SLA con disponibilidad 99.6%",
     ],
   },
   {
-    name: "Internet Dedicado",
-    price: 0,
-    speed: 0,
-    badge: "A medida",
+    name: "Empresarial Premium",
+    price: 400000,
+    speed: 400,
     features: [
-      "Ancho de banda 100% dedicado",
-      "Disponibilidad garantizada 99.6%",
-      "Soporte premium 24/7",
-      "Diseñado para tu operación",
+      "SLA de disponibilidad hasta 99.9%",
+      "Soporte técnico 24/7 y atención prioritaria",
+      "IP pública fija incluida",
+      "Máximo rendimiento para tu operación",
     ],
   },
 ];
@@ -246,22 +230,167 @@ export const lifestyle = [
 
 export const coverageZones = [
   "Riohacha",
-  "Maicao",
-  "Manaure",
+  "Tomarrazón",
+  "Bañaderos",
+  "Villa Martín",
+  "Monguí",
+  "Camarones",
+  "Palomino",
+  "Buritaca",
   "Uribia",
-  "Dibulla",
-  "Albania",
-  "Hatonuevo",
-  "Barrancas",
+  "Manaure",
+  "Mayapo",
 ];
 
+// ─────────────────────────────────────────────────────────────────────────
+// "Información importante para usuarios" — contenido exigido por la SIC
+// (Resolución 49031 de 2026). Todo centralizado para fácil actualización.
+// ─────────────────────────────────────────────────────────────────────────
+
+// Submenú del botón "Información importante para usuarios" (6 segmentos).
+export const infoLinks = [
+  { label: "Cobertura", href: "/informacion-importante#cobertura" },
+  {
+    label: "Comparador de planes y tarifas",
+    href: "/informacion-importante#comparador",
+  },
+  {
+    label: "Factores de limitación de la velocidad de Internet",
+    href: "/informacion-importante#factores-velocidad",
+  },
+  {
+    label: "Indicadores de calidad del servicio de Internet",
+    href: "/informacion-importante#indicadores-calidad",
+  },
+  {
+    label: "Prácticas de gestión de tráfico",
+    href: "/informacion-importante#gestion-trafico",
+  },
+  {
+    label: "Peticiones, Quejas y Reclamos (PQR)",
+    href: "/informacion-importante#pqr",
+  },
+];
+
+// Comparador de planes y tarifas vigentes (fuente: documento TECOLNET).
+// NOTA: verificar contra la tarifa facturada antes de publicar en producción.
+export type TarifaRow = {
+  name: string;
+  tech: string;
+  speed: string;
+  price: number;
+  beneficios?: string;
+};
+
+export const comparador: { residencial: TarifaRow[]; empresarial: TarifaRow[] } = {
+  residencial: [
+    { name: "Plan Básico", tech: "Antena / Radio", speed: "10 Mbps", price: 72000 },
+    { name: "Plan Full", tech: "Antena / Radio", speed: "15 Mbps", price: 100000 },
+    { name: "Plan Pro", tech: "Antena / Radio", speed: "20 Mbps", price: 130000 },
+    { name: "Plan Hogar Básico", tech: "Fibra óptica", speed: "100 Mbps", price: 50000 },
+    { name: "Plan Hogar Avanzado", tech: "Fibra óptica", speed: "150 Mbps", price: 75000 },
+    { name: "Plan Hogar Premium", tech: "Fibra óptica", speed: "200 Mbps", price: 100000 },
+  ],
+  empresarial: [
+    {
+      name: "Empresarial",
+      tech: "Fibra óptica",
+      speed: "200 Mbps",
+      price: 250000,
+      beneficios: "SLA hasta 99.9%, soporte 24/7, IP pública fija",
+    },
+    {
+      name: "Empresarial Plus",
+      tech: "Fibra óptica",
+      speed: "300 Mbps",
+      price: 320000,
+      beneficios:
+        "SLA hasta 99.9%, soporte 24/7, IP pública fija, atención prioritaria",
+    },
+    {
+      name: "Empresarial Premium",
+      tech: "Fibra óptica",
+      speed: "400 Mbps",
+      price: 400000,
+      beneficios:
+        "SLA hasta 99.9%, soporte 24/7, IP pública fija, atención prioritaria",
+    },
+  ],
+};
+
+// Factores que limitan la velocidad de Internet.
+export const speedFactors = {
+  internos: [
+    "Nivel de ocupación y contención de la red (usuarios conectados simultáneamente).",
+    "Capacidad de los enlaces de interconexión y del canal internacional.",
+    "Estado y configuración de los equipos de red (nodos, antenas, OLT).",
+    "Mantenimientos programados o correctivos sobre la infraestructura.",
+    "Tecnología y velocidad máxima del plan contratado (fibra óptica o radio).",
+  ],
+  externos: [
+    "Capacidad del dispositivo del usuario (procesador, memoria, tarjeta de red, antigüedad).",
+    "Red WiFi del hogar: distancia al router, paredes, interferencias y número de dispositivos.",
+    "Cableado interno y estado de los equipos propios del cliente.",
+    "Capacidad de los servidores o sitios web que el usuario visita.",
+    "Uso simultáneo de varias aplicaciones, descargas o dispositivos.",
+    "Condiciones climáticas severas (en enlaces vía radio).",
+    "Fallas eléctricas o del suministro de energía en el domicilio.",
+    "Software malicioso o aplicaciones en segundo plano en los equipos del cliente.",
+  ],
+};
+
+// Prácticas de gestión de tráfico del operador.
+export const trafficPractices = [
+  "Gestión de la congestión en horas de máxima demanda para distribuir la capacidad de forma equitativa entre los usuarios.",
+  "Priorización del tráfico sensible a la latencia (voz y videollamadas) cuando es necesario para preservar la calidad del servicio.",
+  "Medidas de seguridad para mitigar ataques de denegación de servicio (DDoS), spam y tráfico malicioso.",
+  "Bloqueo de puertos, contenidos o servicios únicamente por seguridad de la red o por orden de autoridad competente.",
+  "Respeto a la neutralidad de la red: no se degrada ni bloquea el tráfico por tipo de contenido, aplicación, origen o destino, conforme a la regulación de la CRC.",
+  "Los mantenimientos que puedan afectar temporalmente el servicio se informan con la debida antelación cuando es posible.",
+];
+
+// Derecho y procedimiento de PQR.
+export const pqr = {
+  derecho:
+    "Como usuario tienes derecho a presentar Peticiones, Quejas, Reclamos y Recursos (PQR) ante TECOLNET de forma gratuita, por cualquiera de los canales dispuestos y sin exigencia de requisitos innecesarios. TECOLNET debe recibir, tramitar y responder tu solicitud dentro de los plazos establecidos por la regulación (CRC y SIC).",
+  procedimiento: [
+    "Presenta tu PQR por el canal que prefieras: formulario web, WhatsApp, correo electrónico o de forma presencial en nuestra sede.",
+    "Recibirás un número de radicado (CUN) como constancia de tu solicitud.",
+    "TECOLNET analizará tu caso y te responderá dentro de los 15 días hábiles siguientes (o el plazo que fije la norma vigente).",
+    "Si no estás de acuerdo con la respuesta, puedes interponer recurso de reposición y, en subsidio, de apelación.",
+    "La Superintendencia de Industria y Comercio (SIC) actúa como segunda instancia para resolver la apelación.",
+  ],
+};
+
+// Zonas con mapa de cobertura por incrustar (TECOLNET entrega las imágenes).
+export const coverageMaps = [
+  "Riohacha (zona urbana)",
+  "Tomarrazón",
+  "Bañaderos",
+  "Villa Martín",
+  "Monguí",
+  "Los Naranjos / Parque Tayrona",
+  "Buritaca",
+  "Palomino",
+  "Uribia",
+  "Manaure",
+  "Mayapo",
+];
+
+// Documentos descargables (PDF/Excel). Vacío = "por publicar" (TECOLNET los sube).
+export const docs = {
+  pqr: "",
+  indicadores: "",
+  gestionTrafico: "",
+};
+
 export const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Planes", href: "#planes" },
-  { label: "Empresas", href: "#empresas" },
-  { label: "Cobertura", href: "#cobertura" },
-  { label: "Velocidad", href: "#velocidad" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Planes", href: "/#planes" },
+  { label: "Empresas", href: "/#empresas" },
+  { label: "Cobertura", href: "/#cobertura" },
+  { label: "Velocidad", href: "/#velocidad" },
+  { label: "Nosotros", href: "/#nosotros" },
 ];
 
 export function formatCOP(value: number) {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navLinks, company, links } from "@/lib/data";
+import Link from "next/link";
+import { navLinks, company, links, infoLinks } from "@/lib/data";
 import { Icons } from "./Icons";
 
 export default function Header() {
@@ -30,7 +31,7 @@ export default function Header() {
           }`}
         >
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-tecolnet-mark.png"
@@ -42,23 +43,47 @@ export default function Header() {
             <span className="font-display text-lg font-bold tracking-tight">
               Tecol<span className="text-brand-bright">Net</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
-            {navLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
-              >
-                {l.label}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-1 xl:flex">
+            {navLinks
+              .filter((l) =>
+                ["/#planes", "/#cobertura", "/#nosotros"].includes(l.href)
+              )
+              .map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
+                >
+                  {l.label}
+                </a>
+              ))}
+
+            {/* Botón obligatorio SIC: "Información importante para usuarios" */}
+            <div className="group relative">
+              <button className="flex items-center gap-1.5 rounded-lg border border-cyan/30 bg-cyan/5 px-3 py-2 text-sm font-semibold text-cyan-soft transition-colors hover:bg-cyan/10 group-focus-within:bg-cyan/10">
+                <Icons.info className="h-4 w-4" />
+                Información importante para usuarios
+                <Icons.chevron className="h-3.5 w-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 mt-2 w-80 translate-y-1 rounded-2xl border border-line bg-surface/95 p-2 opacity-0 shadow-xl backdrop-blur-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                {infoLinks.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="block rounded-lg px-3 py-2.5 text-sm leading-snug text-muted transition-colors hover:bg-white/5 hover:text-cyan"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </nav>
 
           {/* CTA */}
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2 xl:flex">
             <a
               href={links.pagar}
               target="_blank"
@@ -87,19 +112,19 @@ export default function Header() {
             >
               <Icons.whatsapp className="h-4 w-4" />
             </a>
-            <a
-              href="#planes"
+            <Link
+              href="/#planes"
               className="btn-glow rounded-xl px-4 py-2 text-sm font-bold text-white"
             >
               Contratar
-            </a>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
             aria-label="Menú"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-line lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-line xl:hidden"
           >
             <div className="space-y-1.5">
               <span
@@ -123,7 +148,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="glass-strong mt-2 rounded-2xl p-4 lg:hidden">
+          <div className="glass-strong mt-2 max-h-[80vh] overflow-y-auto rounded-2xl p-4 xl:hidden">
             <nav className="flex flex-col">
               {navLinks.map((l) => (
                 <a
@@ -135,6 +160,25 @@ export default function Header() {
                   {l.label}
                 </a>
               ))}
+
+              {/* Información importante para usuarios (SIC) */}
+              <div className="mt-2 rounded-xl border border-cyan/25 bg-cyan/5 p-2">
+                <p className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-cyan-soft">
+                  <Icons.info className="h-4 w-4" />
+                  Información importante para usuarios
+                </p>
+                {infoLinks.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm leading-snug text-muted transition-colors hover:bg-white/5 hover:text-cyan"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+
               <div className="mt-3 flex gap-2">
                 <a
                   href={links.portal}
@@ -165,13 +209,13 @@ export default function Header() {
                   <Icons.whatsapp className="h-4 w-4 text-[#22d3ee]" />
                   WhatsApp
                 </a>
-                <a
-                  href="#planes"
+                <Link
+                  href="/#planes"
                   onClick={() => setOpen(false)}
                   className="btn-glow flex-1 rounded-xl px-3 py-2.5 text-center text-sm font-bold text-white"
                 >
                   Contratar
-                </a>
+                </Link>
               </div>
             </nav>
           </div>
