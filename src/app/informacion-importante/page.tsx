@@ -111,27 +111,34 @@ export default function InformacionImportante() {
               tu domicilio esté dentro del área cubierta.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {coverageMaps.map((zone) => (
-                <div
-                  key={zone}
-                  className="overflow-hidden rounded-2xl border border-line bg-surface/40"
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {coverageMaps.map((m) => (
+                <a
+                  key={m.zone}
+                  href={m.img}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group overflow-hidden rounded-2xl border border-line bg-surface/40 transition-colors hover:border-cyan/40"
                 >
-                  <div className="flex aspect-video items-center justify-center border-b border-line bg-white/[0.02] text-center">
-                    <span className="flex flex-col items-center gap-1.5 text-faint">
-                      <Icons.map className="h-6 w-6" />
-                      <span className="text-xs">Mapa por publicar</span>
-                    </span>
+                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-line bg-white/[0.02]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={m.img}
+                      alt={`Mapa de cobertura — ${m.zone}`}
+                      loading="lazy"
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
                   </div>
-                  <p className="px-4 py-3 text-sm font-semibold text-ink">
-                    {zone}
+                  <p className="flex items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-ink">
+                    {m.zone}
+                    <Icons.external className="h-3.5 w-3.5 text-faint transition-colors group-hover:text-cyan" />
                   </p>
-                </div>
+                </a>
               ))}
             </div>
             <p className="mt-4 text-xs text-faint">
-              Los mapas de cobertura por zona se incorporarán en cuanto estén
-              disponibles. Mientras tanto, confirma tu cobertura por WhatsApp.
+              Toca un mapa para ampliarlo. El área sombreada indica la zona
+              cubierta por nuestra red de fibra óptica y radio.
             </p>
             <a
               href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(

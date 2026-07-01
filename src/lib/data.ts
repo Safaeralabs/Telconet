@@ -147,6 +147,13 @@ export const businessPlans: Plan[] = [
   },
 ];
 
+// Planes por antena / radio (para zonas sin fibra) — se muestran en el home.
+export const homeRadioPlans = [
+  { name: "Plan Básico", speed: 10, price: 72000 },
+  { name: "Plan Full", speed: 15, price: 100000 },
+  { name: "Plan Pro", speed: 20, price: 130000 },
+];
+
 export const features = [
   {
     title: "Fibra hasta tu hogar",
@@ -362,19 +369,19 @@ export const pqr = {
   ],
 };
 
-// Zonas con mapa de cobertura por incrustar (TECOLNET entrega las imágenes).
+// Zonas con mapa de cobertura (imágenes provistas por TECOLNET).
 export const coverageMaps = [
-  "Riohacha (zona urbana)",
-  "Tomarrazón",
-  "Bañaderos",
-  "Villa Martín",
-  "Monguí",
-  "Los Naranjos / Parque Tayrona",
-  "Buritaca",
-  "Palomino",
-  "Uribia",
-  "Manaure",
-  "Mayapo",
+  { zone: "Riohacha (zona urbana)", img: "/mapas/riohacha.webp" },
+  { zone: "Tomarrazón", img: "/mapas/tomarrazon.webp" },
+  { zone: "Bañaderos", img: "/mapas/banaderos.webp" },
+  { zone: "Villa Martín", img: "/mapas/villa-martin.webp" },
+  { zone: "Monguí", img: "/mapas/mongui.webp" },
+  { zone: "Los Naranjos / Parque Tayrona", img: "/mapas/los-naranjos.webp" },
+  { zone: "Buritaca", img: "/mapas/buritaca.webp" },
+  { zone: "Palomino", img: "/mapas/palomino.webp" },
+  { zone: "Uribia", img: "/mapas/uribia.webp" },
+  { zone: "Manaure", img: "/mapas/manaure.webp" },
+  { zone: "Mayapo", img: "/mapas/mayapo.webp" },
 ];
 
 // Documentos descargables (PDF/Excel). Vacío = "por publicar" (TECOLNET los sube).

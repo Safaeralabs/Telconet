@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   homePlans,
+  homeRadioPlans,
   businessPlans,
   formatCOP,
   company,
@@ -157,6 +158,38 @@ export default function Plans() {
                 <PlanCard key={p.name} plan={p} index={i} />
               ))}
             </div>
+
+            {tab === "hogar" && (
+              <div className="mt-8">
+                <p className="mb-4 text-center text-sm font-semibold text-muted">
+                  ¿Sin fibra en tu zona? También llegamos por{" "}
+                  <span className="text-cyan">antena / radio</span>:
+                </p>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {homeRadioPlans.map((p) => (
+                    <div
+                      key={p.name}
+                      className="glass flex items-center justify-between rounded-2xl px-6 py-5"
+                    >
+                      <div>
+                        <p className="font-display font-bold text-ink">
+                          {p.name}
+                        </p>
+                        <p className="text-xs text-faint">Antena / Radio</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-mono text-lg font-bold text-cyan">
+                          {p.speed} Megas
+                        </p>
+                        <p className="text-sm text-faint">
+                          {formatCOP(p.price)}/mes
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <p className="mt-8 text-center text-sm text-muted">
               ¿Buscas todos los planes y tarifas vigentes?{" "}
